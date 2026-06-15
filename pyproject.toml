@@ -1,0 +1,27 @@
+[project]
+name = "flare26-medgemma-ready"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "accelerate>=1.14.0",
+    "peft>=0.19.1",
+    "torch>=2.12.0",
+    "torchvision>=0.27.0",
+    "transformers>=5.12.0",
+]
+
+[tool.uv]
+required-environments = [
+  "sys_platform == 'win32' and platform_machine == 'AMD64'"
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu132"
+url = "https://download.pytorch.org/whl/cu132"
+explicit = true
+
+[tool.uv.sources]
+torch = [ { index = "pytorch-cu132" } ]
+torchvision = [ { index = "pytorch-cu132" } ]
